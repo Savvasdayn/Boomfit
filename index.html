@@ -1,6 +1,3 @@
-Ниже — расширенная версия сайта фитнес‑зала: блоки «Услуги», «Расписание» и «Контакты» стали объёмнее, с дополнительными карточками и деталями. Анимации сделаны на CSS (плавное появление, «пульсация» карточек при наведении, лёгкая прокрутка фона). Картинки — ссылки на Unsplash (для прототипа).
-
-```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -8,12 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Фитнес-зал | Энергия и сила</title>
   <style>
+    body {
+  background-image:
+    linear-gradient(rgba(241, 242, 246, 0.85), rgba(241, 242, 246, 0.85)),
+    url('https://images.unsplash.com/photo-1585110396070-b91858809764?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* чтобы при скролле фон «стоял» */
+}
+
     :root {
       --primary: #ff4757;
       --secondary: #2f3542;
       --accent: #57606f;
       --light: #f1f2f6;
-      --dark-overlay: rgba(0,0,0,0.35);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -25,262 +30,134 @@
       background-color: var(--light);
     }
 
-    /* Анимация появления блоков при скролле (упрощённая) */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
 
     header {
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
+      background: #fff;
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
       position: sticky;
       top: 0;
       z-index: 1000;
     }
 
     .logo {
-      font-size: 1.75rem;
-      font-weight: 800;
+      font-size: 1.5rem;
+      font-weight: 700;
       color: var(--primary);
-      letter-spacing: -0.5px;
     }
 
     nav ul { display: flex; gap: 2rem; }
     nav a:hover { color: var(--primary); }
 
-    main { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+    main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
 
     /* Hero */
     .hero {
       text-align: center;
-      /* Анимированный фон: плавное движение */
-      background:
-        linear-gradient(var(--dark-overlay), var(--dark-overlay)),
-        url('https://images.unsplash.com/photo-1544669256-09a8ba6c2536?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1544669256-09a8ba6c2536?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
       background-size: cover;
       background-position: center;
-      background-attachment: fixed; /* эффект параллакса */
       color: #fff;
-      padding: 8rem 1rem;
-      border-radius: 16px;
-      margin-bottom: 4rem;
-      position: relative;
-      overflow: hidden;
+      padding: 6rem 1rem;
+      border-radius: 12px;
+      margin-bottom: 3rem;
     }
-    /* Лёгкие «частицы» поверх фона */
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image: radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.15), transparent);
-      background-size: 40px 40px;
-      animation: float 10s infinite linear;
-      pointer-events: none;
-      z-index: 1;
-    }
-    @keyframes float {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(-20px, -20px); }
-    }
-
-    .hero h1 { font-size: 3rem; margin-bottom: 1.2rem; line-height: 1.1; }
-    .hero p { font-size: 1.3rem; margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
     .btn {
       display: inline-block;
       background: var(--primary);
       color: #fff;
-      padding: 1rem 2.2rem;
-      border-radius: 50px;
-      font-weight: 700;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(255,71,87,0.3);
+      padding: 0.8rem 1.8rem;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.3s;
     }
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 18px rgba(255,71,87,0.4);
-      background: #e84118;
-    }
+    .btn:hover { background: #e84118; }
 
+    /* Sections */
     .section-title {
       text-align: center;
-      font-size: 2.25rem;
-      margin-bottom: 2.5rem;
+      font-size: 2rem;
+      margin-bottom: 2rem;
       color: var(--secondary);
-      position: relative;
-    }
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 4px;
-      background: var(--primary);
-      margin: 0 auto;
-      margin-top: 10px;
-      border-radius: 2px;
     }
 
-    /* Услуги: сетка + анимация карточек */
-    #services {
-      padding: 4rem 0;
-    }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
     }
     .card {
       background: #fff;
-      padding: 2.5rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
       text-align: center;
-      transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
-      cursor: default;
-      border: 1px solid rgba(0,0,0,0.04);
     }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
-    }
-    .card h3 { margin-bottom: 0.8rem; color: var(--primary); font-size: 1.5rem; }
-    .card p { color: #555; }
+    .card h3 { margin-bottom: 0.5rem; color: var(--primary); }
 
-    /* Расписание: больше строк, адаптивная таблица */
-    #schedule {
-      padding: 4rem 0;
-    }
     .schedule-table {
       width: 100%;
       border-collapse: collapse;
       background: #fff;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      border-radius: 8px;
       overflow: hidden;
       margin-bottom: 3rem;
     }
-    .schedule-table th, .schedule-table td { padding: 1.2rem 1.5rem; text-align: left; }
-    .schedule-table th { background: var(--secondary); color: #fff; font-weight: 600; }
-    .schedule-table tr:nth-child(even) { background: #fafafa; }
-    .schedule-table tr:hover { background: rgba(255,71,87,0.06); }
+    .schedule-table th, .schedule-table td { padding: 1rem 1.5rem; text-align: left; }
+    .schedule-table th { background: var(--secondary); color: #fff; }
+    .schedule-table tr:nth-child(even) { background: var(--light); }
 
-    /* Контакты: форма + блок с адресом и картой-заглушкой */
-    #contacts {
-      padding: 4rem 0;
-    }
-    .contact-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-    @media (max-width: 900px) {
-      .contact-container { grid-template-columns: 1fr; }
-    }
-
-    .contact-info-block {
-      background: linear-gradient(135deg, #2f3542 0%, #37424f 100%);
-      color: #fff;
-      padding: 2.5rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(47, 53, 66, 0.2);
-    }
-    .contact-info-block h3 { color: #fff; margin-bottom: 1.5rem; }
-    .info-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
-    .info-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--primary);
-      color: #fff;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-    }
-
-    /* Карта-заглушка с анимацией */
-    .map-placeholder {
-      width: 100%;
-      height: 280px;
-      background: #eee;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #888;
-      position: relative;
-      overflow: hidden;
-    }
-    .map-placeholder::before {
-      content: '';
-      position: absolute;
-      top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 40%, rgba(255,255,255,0.3) 60%, rgba(255,255,255,0) 100%);
-      animation: pulse-map 6s infinite alternate;
-    }
-    @keyframes pulse-map {
-      from { transform: scale(0.9); opacity: 0.4; }
-      to { transform: scale(1); opacity: 0.6; }
-    }
-
+    /* Form */
     .contact-form {
-      max-width: 560px;
-      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
       background: #fff;
-      padding: 2.5rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
-    .form-group { margin-bottom: 1.4rem; }
-    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--secondary); }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; margin-bottom: 0.4rem; font-weight: 600; }
     .form-group input, .form-group textarea {
       width: 100%;
-      padding: 0.9rem;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 1rem;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
     button[type="submit"] {
       background: var(--primary);
       color: #fff;
-      padding: 1rem 2rem;
+      padding: 0.8rem 2rem;
       border: none;
-      border-radius: 6px;
+      border-radius: 4px;
       cursor: pointer;
-      font-size: 1.05rem;
-      font-weight: 700;
+      font-weight: 600;
       width: 100%;
-      transition: background 0.3s;
     }
     button[type="submit"]:hover { background: #e84118; }
 
     footer {
       background: var(--secondary);
-      color: #ccc;
-      padding: 3rem 0;
+      color: #fff;
+      padding: 2rem;
       text-align: center;
-      margin-top: 4rem;
+      margin-top: 3rem;
     }
-    footer p { margin: 0.3rem 0; }
+    footer p { opacity: 0.8; }
 
     @media (max-width: 768px) {
       header { flex-direction: column; gap: 1rem; }
-      .hero h1 { font-size: 2rem; }
-      .section-title { font-size: 1.8rem; }
+      .hero h1 { font-size: 1.8rem; }
+      nav ul { gap: 1rem; flex-wrap: wrap; justify-content: center; }
     }
   </style>
 </head>
@@ -289,6 +166,7 @@
     <a href="#" class="logo">FIT ENERGY</a>
     <nav>
       <ul>
+        <li><a href="#about">О нас</a></li>
         <li><a href="#services">Услуги</a></li>
         <li><a href="#schedule">Расписание</a></li>
         <li><a href="#contacts">Контакты</a></li>
@@ -298,45 +176,33 @@
 
   <main>
     <!-- Главный экран -->
-    <section class="hero fade-in">
+    <section class="hero">
       <h1>Начни путь к лучшей версии себя</h1>
-      <p>Современный фитнес-зал с профессиональными тренерами и персональными программами для любого уровня подготовки. Зарядись энергией и силой уже сегодня!</p>
+      <p>Современный фитнес-зал с профессиональными тренерами и персональными программами для любого уровня подготовки.</p>
       <a href="#contacts" class="btn">Записаться на пробное занятие</a>
     </section>
 
     <!-- Услуги -->
-    <section id="services" class="fade-in">
+    <section id="services">
       <h2 class="section-title">Наши услуги</h2>
       <div class="services-grid">
         <div class="card">
           <h3>Тренажёрный зал</h3>
-          <p>Современное оборудование для силовых и функциональных тренировок. Зоны для разминки и растяжки, кардио-зона с видом на город.</p>
+          <p>Современное оборудование для силовых и функциональных тренировок, зоны для разминки и растяжки.</p>
         </div>
         <div class="card">
           <h3>Групповые занятия</h3>
-          <p>Йога, пилатес, HIIT, степ и другие групповые тренировки под руководством опытных инструкторов. Расписание обновляется еженедельно.</p>
+          <p>Йога, пилатес, HIIT, степ и другие групповые тренировки под руководством опытных инструкторов.</p>
         </div>
         <div class="card">
           <h3>Персональные тренировки</h3>
-          <p>Индивидуальные программы с тренером: подбор упражнений, контроль техники, отслеживание прогресса и мотивация каждый день.</p>
-        </div>
-        <div class="card">
-          <h3>Функциональный тренинг</h3>
-          <p>Тренировки на развитие силы, выносливости и координации. Используем снаряды, TRX, гири, медболы и многое другое.</p>
-        </div>
-        <div class="card">
-          <h3>Растяжка и мобильность</h3>
-          <p>Занятия для улучшения гибкости, снятия напряжения и профилактики травм. Подходит даже новичкам и людям с низкой активностью.</p>
-        </div>
-        <div class="card">
-          <h3>Зона восстановления</h3>
-          <p>Роллеры, массажные мячи, зоны для заминки и релаксации. Всё, чтобы быстрее восстанавливаться после интенсивных тренировок.</p>
+          <p>Индивидуальные программы с тренером: подбор упражнений, контроль техники, отслеживание прогресса.</p>
         </div>
       </div>
     </section>
 
     <!-- Расписание -->
-    <section id="schedule" class="fade-in">
+    <section id="schedule">
       <h2 class="section-title">Расписание популярных занятий</h2>
       <table class="schedule-table">
         <thead>
@@ -345,7 +211,6 @@
             <th>Время</th>
             <th>Занятие</th>
             <th>Тренер</th>
-            <th>Зал</th>
           </tr>
         </thead>
         <tbody>
@@ -354,22 +219,25 @@
             <td>08:00–09:00</td>
             <td>Функциональная тренировка</td>
             <td>Анна К.</td>
-            <td>Зал A</td>
           </tr>
           <tr>
             <td>Вторник</td>
             <td>19:00–20:00</td>
             <td>HIIT</td>
             <td>Дмитрий П.</td>
-            <td>Зал B</td>
           </tr>
           <tr>
             <td>Среда</td>
             <td>07:30–08:30</td>
             <td>Йога</td>
             <td>Елена М.</td>
-            <td>Зал C</td>
-            </tr>
+          </tr>
+          <tr>
+            <td>Пятница</td>
+            <td>20:00–21:00</td>
+            <td>Пилатес</td>
+            <td>Ольга С.</td>
+          </tr>
         </tbody>
       </table>
     </section>
