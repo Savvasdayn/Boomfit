@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Услуги — PowerFit Gym</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">PowerFit</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="services.html" class="active">Услуги</a></li>
+        <li><a href="contact.html">Контакты</a></li>
+      </ul>
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-hero">
+    <h1>Наши услуги</h1>
+  </div>
+
+  <section>
+    <h2 class="section-title">Программы и абонементы</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">💪</div>
+        <h3>Силовые тренировки</h3>
+        <p>Индивидуальные и групповые занятия с акцентом на рост мышц и силу. Персональный план питания.</p>
+        <div class="price">от 2500 ₽ <span>/ мес</span></div>
+        <a href="contact.html" class="btn">Записаться</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔥</div>
+        <h3>Кроссфит</h3>
+        <p>Высокоинтенсивные функциональные тренировки. Максимальная отдача за короткое время.</p>
+        <div class="price">от 3200 ₽ <span>/ мес</span></div>
+        <a href="contact.html" class="btn">Записаться</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🧘</div>
+        <h3>Йога & Пилатес</h3>
+        <p>Гибкость, баланс и осознанность. Идеально для восстановления и работы с телом.</p>
+        <div class="price">от 2000 ₽ <span>/ мес</span></div>
+        <a href="contact.html" class="btn">Записаться</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🥊</div>
+        <h3>Бокс & ММА</h3>
+        <p>Техника, выносливость и характер. Тренировки для новичков и продвинутых.</p>
+        <div class="price">от 2800 ₽ <span>/ мес</span></div>
+        <a href="contact.html" class="btn">Записаться</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">👤</div>
+        <h3>Персональный тренинг</h3>
+        <p>Один на один с тренером. Максимально быстрый и точный результат под ваши цели.</p>
+        <div class="price">от 1500 ₽ <span>/ занятие</span></div>
+        <a href="contact.html" class="btn">Записаться</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🏆</div>
+        <h3>VIP-абонемент</h3>
+        <p>Безлимит + персональный тренер + сауна + парковка. Полный доступ ко всем зонам.</p>
+        <div class="price">от 8900 ₽ <span>/ мес</span></div>
+        <a href="contact.html" class="btn">Записаться</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Зоны зала</h2>
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=500" alt="Свободные веса">
+        <div class="overlay"><span>Свободные веса</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4aef?w=500" alt="Кардио">
+        <div class="overlay"><span>Кардио-зона</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=500" alt="Студия">
+        <div class="overlay"><span>Групповые студии</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=500" alt="Функционал">
+        <div class="overlay"><span>Функциональная зона</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="socials">
+      <a href="#">📱</a>
+      <a href="#">📷</a>
+      <a href="#">▶️</a>
+    </div>
+    <p>&copy; 2026 PowerFit Gym. Все права защищены.</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

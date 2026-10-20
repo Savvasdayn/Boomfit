@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакты — PowerFit Gym</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">PowerFit</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about.html">О нас</a></li>
+        <li><a href="services.html">Услуги</a></li>
+        <li><a href="contact.html" class="active">Контакты</a></li>
+      </ul>
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-hero">
+    <h1>Контакты</h1>
+  </div>
+
+  <section>
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <h3>Приходи к нам</h3>
+        <p>📍 г. Москва, ул. Спортивная, 15</p>
+        <p>📞 +7 (495) 123-45-67</p>
+        <p>✉️ info@powerfit-gym.ru</p>
+        <p>🕒 Пн–Пт: 06:00 – 23:00<br>
+           Сб–Вс: 08:00 – 22:00</p>
+        
+        <h3 style="margin-top: 2rem;">Как добраться</h3>
+        <p>Метро «Спортивная» — 3 минуты пешком. Парковка бесплатная для клиентов.</p>
+        
+        <div style="margin-top: 2rem;">
+          <img src="https://images.unsplash.com/photo-1571902943202-507c97efd13f?w=600" alt="Наш зал" style="width:100%; border-radius:12px; animation: float 4s ease-in-out infinite;">
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Запишись на пробную тренировку</h3>
+        <form onsubmit="event.preventDefault(); alert('Спасибо! Мы свяжемся с вами в ближайшее время.');">
+          <div class="form-group">
+            <label for="name">Имя</label>
+            <input type="text" id="name" name="name" required placeholder="Ваше имя">
+          </div>
+          <div class="form-group">
+            <label for="phone">Телефон</label>
+            <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="email@example.com">
+          </div>
+          <div class="form-group">
+            <label for="message">Сообщение</label>
+            <textarea id="message" name="message" rows="4" placeholder="Расскажите о своих целях..."></textarea>
+          </div>
+          <button type="submit" class="btn" style="width:100%; border:none; cursor:pointer;">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="socials">
+      <a href="#">📱</a>
+      <a href="#">📷</a>
+      <a href="#">▶️</a>
+    </div>
+    <p>&copy; 2026 PowerFit Gym. Все права защищены.</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

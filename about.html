@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>О нас — PowerFit Gym</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">PowerFit</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about.html" class="active">О нас</a></li>
+        <li><a href="services.html">Услуги</a></li>
+        <li><a href="contact.html">Контакты</a></li>
+      </ul>
+      <div class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <div class="page-hero">
+    <h1>О нас</h1>
+  </div>
+
+  <section>
+    <div class="about-content">
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700" alt="Наша команда">
+      </div>
+      <div class="about-text">
+        <h2>Мы меняем жизни с 2015 года</h2>
+        <p>PowerFit — это не просто фитнес-зал. Это сообщество людей, которые стремятся к лучшей версии себя. Мы создали пространство, где каждый чувствует поддержку, мотивацию и результат.</p>
+        <p>Наши залы оборудованы по последнему слову техники. Мы постоянно обновляем инвентарь и следим за трендами мирового фитнеса.</p>
+        <p>Более 5000 довольных клиентов уже достигли своих целей вместе с нами. Присоединяйся!</p>
+        
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-number">10+</span>
+            <span>Лет опыта</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">50+</span>
+            <span>Тренеров</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">5k+</span>
+            <span>Клиентов</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Наша философия</h2>
+    <div class="features">
+      <div class="card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1517963879433-6ad2b7569b22?w=600" alt="Дисциплина">
+        </div>
+        <div class="card-body">
+          <h3>Дисциплина</h3>
+          <p>Результаты приходят через постоянство. Мы помогаем вырабатывать привычки, которые меняют жизнь.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1599058946859-7b5c0a6c1e3e?w=600" alt="Сообщество">
+        </div>
+        <div class="card-body">
+          <h3>Сообщество</h3>
+          <p>Тренируйся рядом с единомышленниками. Вместе легче преодолевать трудности и праздновать победы.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img">
+          <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=600" alt="Результат">
+        </div>
+        <div class="card-body">
+          <h3>Результат</h3>
+          <p>Мы измеряем прогресс. Каждый клиент видит реальные изменения — в теле, энергии и уверенности.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="socials">
+      <a href="#">📱</a>
+      <a href="#">📷</a>
+      <a href="#">▶️</a>
+    </div>
+    <p>&copy; 2026 PowerFit Gym. Все права защищены.</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
